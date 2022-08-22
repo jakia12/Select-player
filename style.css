@@ -68,6 +68,14 @@ label {
     padding: 90px 0;
 }
 
+.player_col {
+    margin-bottom: 1.5rem;
+}
+
+.player_name {
+    font-size: 1.3rem;
+}
+
 .count {
     font-size: 1rem;
     display: inline-block;
