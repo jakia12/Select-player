@@ -41,7 +41,7 @@ const displayPlayers = (array) => {
                   <span class="assist_count count   text-capitalize ">
                   ${countAssist} Assist</span>
               </div>
-              <a href="#" class="select_btn btn ">Select</a>
+              <a href="" class="select_btn btn ">Select</a>
           </div>
       </div>
   </div>
@@ -57,7 +57,7 @@ displayPlayers(players);
 
 
 //cart products
-const productRows = document.getElementsByClassName('player_rows');
+
 const selectBtn = document.getElementsByClassName('select_btn');
 
 for (let btns of selectBtn) {
@@ -66,9 +66,42 @@ for (let btns of selectBtn) {
 
 }
 
+let cart = [];
+
 function selectBtnClicked(event) {
+    event.preventDefault();
+    event.stopPropagation();
+
     const playerItem = event.target.parentElement;
-    const image = docu
+    const name = playerItem.parentElement.getElementsByClassName('player_name')[0].innerHTML;
+
+    let playerArr = {
+        name: name
+    }
+
+    cart.push(playerArr);
+
+    addPlayerList(cart)
+
+}
+
+
+function addPlayerList(array) {
+
+    const playerRows = document.getElementsByClassName('player_rows')[0];
+    const playerRow = document.createElement('ul');
+    playerRow.classList.add('player_row');
+
+    array.forEach((list, index) => {
+        playerRow.innerHTML = `
+        <li class="text-white player_list font-normal lh-base text-capitalize">
+        <span class="num_spacing"> ${index + 1}.
+        </span>${list.name}</li>
+        `;
+    });
+
+    playerRows.appendChild(playerRow);
+
 }
 
 
