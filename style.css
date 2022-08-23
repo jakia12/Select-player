@@ -82,7 +82,7 @@ label {
     color: #ddd;
 }
 
-a.btn.select_btn {
+.select_btn {
     padding: 0.5rem 5rem;
     background: #0B5CD3;
     color: #fff;
@@ -92,10 +92,32 @@ a.btn.select_btn {
     margin-top: 0.9rem;
     /* padding-bottom: 1rem; */
     margin-bottom: 1rem;
+    transition: all 0.5s ease;
+}
+
+.select_btn:hover,
+.select_btn:focus {
+    background-color: #ddd;
+    color: #191919;
+}
+
+.select_btn:disabled,
+.select_btn[disabled] {
+    border: 1px solid #ccc;
+    background-color: #ccc;
+
+    color: #fff;
 }
 
 .selected_player_box {
     position: relative;
+}
+
+.sl_player_name {
+    font-size: 1rem;
+    display: inline-block;
+    margin-left: 1rem;
+    font-weight: 400;
 }
 
 .divider {
@@ -108,8 +130,8 @@ a.btn.select_btn {
 }
 
 .player_list {
-    font-size: 1.1rem;
-    padding: 0.6rem 0;
+    font-size: 1rem;
+    padding: 0.1rem 0;
     list-style: none;
 }
 
@@ -150,8 +172,10 @@ h4.amount_total_info.text-light {
     font-size: 1rem;
 }
 
-span#totalAmount {
-    margin-left: 2.5rem;
+#totalAmount,
+#expensesTotal {
+    float: right;
     display: inline-block;
+    margin-right: 1rem;
 
 }
