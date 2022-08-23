@@ -61,6 +61,9 @@
                     </div>
                     <div class="col-md-3 col-sm-6">
                         <div class="selected_player_box bg-dark  py-3 mb-3 rounded">
+                            <div class="player_len text-white">
+
+                            </div>
                             <h3 class="text-capitalize text-center fw-semibold title lh-base text-white pt-3">selected-v
                             </h3>
                             <div class="divider"></div>
@@ -74,43 +77,52 @@
                         <!-- player expense calculator -->
 
                         <div class="budget_calculation bg-dark p-3 rounded">
-                            <h3 class="text-capitalize text-center title fw-semibold lh-base text-white pt-3">Budget
+                            <h3
+                                class="text-capitalize text-center title budget_title fw-semibold lh-base text-white pt-3">
+                                Budget
                             </h3>
                             <div class="divider"></div>
                             <div class="player_expense_calculate">
-                                <form action=" ">
-                                    <div class="input_wrapper d-flex align-items-center">
-                                        <label class="form-label text-light " for="">Per player :</label>
-                                        <input type="text" class="calc_form rounded">
 
-                                    </div>
+                                <div class="input_wrapper d-flex align-items-center">
+                                    <label class="form-label text-light " for="">Per player :</label>
+                                    <input type="text" class="calc_form rounded" id="perPlayerInput">
 
-                                    <div class="text-center my-2 py-3">
-                                        <button type="submit" class="calc_btn  rounded">
-                                            Calculate
-                                        </button>
-                                    </div>
-                                </form>
+                                </div>
+
+                                <div class="text-center my-2 py-3">
+                                    <button type="submit" class="calc_btn  rounded">
+                                        Calculate
+                                    </button>
+                                </div>
+                                <div class="my-3">
+                                    <h4 class="amount_total_info text-light pb-3">Player Expenses : <span
+                                            id="totalAmount"></span></h4>
+                                </div>
+
                                 <!-- per player expense calculation end -->
 
-                                <form action=" ">
-                                    <div class="input_wrapper d-flex align-items-center pb-3">
-                                        <label class="form-label text-light " for="">Manager :</label>
-                                        <input type="text" class="calc_form rounded">
 
-                                    </div>
-                                    <div class="input_wrapper d-flex align-items-center ">
-                                        <label class="form-label text-light " for="">Coach :</label>
-                                        <input type="text" class="calc_form rounded">
+                                <div class="input_wrapper d-flex align-items-center pb-3">
+                                    <label class="form-label text-light " for="">Manager :</label>
+                                    <input type="text" class="calc_form rounded" id="managerInput">
 
-                                    </div>
+                                </div>
+                                <div class="input_wrapper d-flex align-items-center ">
+                                    <label class="form-label text-light " for="">Coach :</label>
+                                    <input type="text" class="calc_form rounded" id="coachInput">
 
-                                    <div class="text-center my-2 py-3 ">
-                                        <button type="submit" class="calc_btn mb-3 text-capitalize rounded">
-                                            Calculate total
-                                        </button>
-                                    </div>
-                                </form>
+                                </div>
+
+                                <div class="text-center my-2 py-3 ">
+                                    <button id="calctotal" type="submit" class="calc_btn mb-3 text-capitalize rounded">
+                                        Calculate total
+                                    </button>
+                                </div>
+                                <div class="my-3">
+                                    <h4 class="amount_total_info text-light pb-3">Total : <span
+                                            id="expensesTotal"></span></h4>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -125,6 +137,8 @@
         crossorigin="anonymous"></script>
 
     <script src="js/app.js"></script>
+    <script src="js/calculate.js"></script>
+
 </body>
 
 </html>

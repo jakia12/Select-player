@@ -83,6 +83,8 @@ function selectBtnClicked(event) {
 
     addPlayerList(cart)
 
+    console.log(cart.length);
+
 }
 
 
@@ -92,17 +94,64 @@ function addPlayerList(array) {
     const playerRow = document.createElement('ul');
     playerRow.classList.add('player_row');
 
-    array.forEach((list, index) => {
-        playerRow.innerHTML = `
-        <li class="text-white player_list font-normal lh-base text-capitalize">
-        <span class="num_spacing"> ${index + 1}.
-        </span>${list.name}</li>
-        `;
-    });
+    const len = array.length;
+    //check whether player number more than five or not
+    if (len > 5) {
+        alert('you can not select more than two');
+        return false;
+    } else {
 
-    playerRows.appendChild(playerRow);
+        //add player to the player's list
+        let listItem = '';
+        array.forEach((list, index) => {
+            listItem = `
+            <li class="text-white player_list font-normal lh-base text-capitalize">
+            <span class="num_spacing"> ${index + 1}.
+            </span>${list.name}</li>
+            `;
+        });
+
+        playerRow.innerHTML = listItem;
+        playerRows.appendChild(playerRow);
+
+    }
+
+    //store the player's list number
+    playerNumber(len);
 
 }
+
+
+
+function playerNumber(length) {
+
+    const playerLen = document.getElementsByClassName('player_len')[0];
+    playerLen.innerText = length;
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
