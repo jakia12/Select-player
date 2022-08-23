@@ -1,10 +1,13 @@
+
 // calculateAll(perPlayerExp);
 
 const calculateBtn = document.getElementsByClassName('calc_btn')[0];
 
 //calculate the perplayer total once clicking the calculate button
 
+//store the total expenses to the variable for later acces to the data
 let total = "";
+
 calculateBtn.addEventListener('click', function (e) {
     e.preventDefault();
     e.stopPropagation();
@@ -14,19 +17,20 @@ calculateBtn.addEventListener('click', function (e) {
     console.log(playerLen);
 
     const playerInput = document.getElementById('perPlayerInput');
+    console.log(playerInput.value);
 
     const playerInputVal = parseInt(playerInput.value);
 
     //validate the input data 
-    if (isNaN(playerInputVal)) {
-        alert('Please provide a number');
+    if (playerInput.value == '') {
+        alertEmpty();
+
+    } else if (isNaN(playerInput.value)) {
+        alertIsNan();
         playerInput.value = '';
 
-    } else if (playerInputVal == '') {
-        alert('Plase add some value to the field');
-
-    } else if (playerInputVal < 0) {
-        alert('Plase add some positive value to the field');
+    } else if (playerInput.value < 0) {
+        alertNegNum();
         playerInput.value = '';
 
     } else {
@@ -41,7 +45,7 @@ calculateBtn.addEventListener('click', function (e) {
         playerInput.value = '';
     }
 
-    //store the total expense to use later on
+    //push the totalamount to the total variable
     total += totalAmount.innerText;
 
 });
@@ -66,30 +70,22 @@ calcTotalBtn.addEventListener('click', function (e) {
     const coachInputval = parseFloat(coachInput.value);
 
     //validate the input value
-    // if (managerInputVal !== 'number') {
-    //     alert('Please provide a number');
-    //     managerInput.value = '';
 
-    // } else if (isNaN(managerInputVal) !== 'number') {
-    //     alert('Please provide a number');
-    //     managerInput.value = '';
-
-    // }
-    if (isNaN(managerInputVal) || isNaN(coachInputval)) {
-        alert('Please provide a number');
+    if (isNaN(managerInput.value) || (isNaN(coachInput.value))) {
+        alertIsNan();
         managerInput.value = '';
         coachInput.value = '';
 
-    } else if (managerInputVal == '' || coachInputval == '') {
-        alert('Plase add some value to the field');
+    } else if (managerInput.value == '' || (coachInput.value == '')) {
+        alertEmpty();
 
-    } else if (managerInputVal < 0 || coachInputval < 0) {
-        alert('Plase add some positive value to the field');
+    } else if ((managerInput.value < 0 && managerInput.value <= -1) || (coachInput.value < 0 || coachInput.value <= -1)) {
+        alertNegNum();
+
         managerInput.value = '';
         coachInput.value = '';
 
-    }
-    else {
+    } else {
         //get the span element by id
         const expensesTotal = document.getElementById('expensesTotal');
 

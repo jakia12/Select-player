@@ -33,6 +33,11 @@ label {
     clear: both;
 }
 
+button {
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
 .wrapper {
     max-width: 1200px;
     width: 100%;
@@ -95,10 +100,9 @@ label {
     transition: all 0.5s ease;
 }
 
-.select_btn:hover,
-.select_btn:focus {
-    background-color: #ddd;
-    color: #191919;
+.select_btn:hover {
+    background: #0B5CD3;
+    color: #fff;
 }
 
 .select_btn:disabled,
@@ -160,7 +164,8 @@ label {
     background-color: transparent;
 }
 
-.calc_btn {
+.calc_btn,
+.calcTotal_btn {
     padding: 0.6rem 3.5rem;
     font-size: 1.1rem;
     background: #0B5CD3;
@@ -178,4 +183,17 @@ h4.amount_total_info.text-light {
     display: inline-block;
     margin-right: 1rem;
 
+}
+
+
+footer.footer {
+    padding: 2.5rem 0;
+    background: #191919;
+}
+
+.footer_text {
+    font-size: 1rem;
+    font-weight: 400;
+    text-align: center;
+    display: block;
 }
